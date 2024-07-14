@@ -17,25 +17,7 @@
         "command": "code-genius.open",
         "title": "Open ChatGPT WebView"
       }
-    ],
-    "viewsContainers": {
-      "activitybar": [
-        {
-          "id": "code-genius-view",
-          "title": "ChatGPT",
-          "icon": "./icons/chats.svg"
-        }
-      ]
-    },
-    "views": {
-      "code-genius-view": [
-        {
-          "type": "webview",
-          "id": "code-genius.webview",
-          "name": "ChatGPT"
-        }
-      ]
-    }
+    ]
   },
   "scripts": {
     "lint": "eslint .",
