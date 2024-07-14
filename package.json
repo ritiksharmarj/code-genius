@@ -12,10 +12,12 @@
   "activationEvents": [],
   "main": "./extension.js",
   "contributes": {
-    "commands": [{
-      "command": "code-genius.helloWorld",
-      "title": "Hello World"
-    }]
+    "commands": [
+      {
+        "command": "code-genius.openWebView",
+        "title": "Open ChatGPT WebView"
+      }
+    ]
   },
   "scripts": {
     "lint": "eslint .",
