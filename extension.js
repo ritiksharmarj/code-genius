@@ -9,29 +9,23 @@ const vscode = require('vscode');
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-  // Use the console to output diagnostic information (console.log) and errors (console.error)
-  // This line of code will only be executed once when your extension is activated
-  console.log('Congratulations, your extension "code-genius" is now active!');
-
-  // The command has been defined in the package.json file
-  // Now provide the implementation of the command with  registerCommand
-  // The commandId parameter must match the command field in package.json
+  // Register a command that will be called when the extension icon is clicked
   const disposable = vscode.commands.registerCommand(
-    'code-genius.openWebView',
+    'code-genius.open',
     function () {
-      // The code you place here will be executed every time your command is executed
+      // Create and show a new webview
       const panel = vscode.window.createWebviewPanel(
-        'webView',
-        'ChatGPT',
-        vscode.ViewColumn.One,
+        'chatgptWebView', // Identifies the type of the webview
+        'ChatGPT', // Title of the panel displayed to the user
+        vscode.ViewColumn.One, // Editor column to show the new webview panel in
         {
           enableScripts: true,
+          retainContextWhenHidden: true,
         }
       );
 
+      // Set the webview's HTML content
       panel.webview.html = getWebviewContent();
-      // Display a message box to the user
-      // vscode.window.showInformationMessage('Hello World from Code Genius!');
     }
   );
 
@@ -40,18 +34,18 @@ function activate(context) {
 
 function getWebviewContent() {
   return `
-			<!DOCTYPE html>
-			<html lang="en">
-			<head>
-					<meta charset="UTF-8">
-					<meta name="viewport" content="width=device-width, initial-scale=1.0">
-					<title>ChatGPT</title>
-			</head>
-			<body>
-					<iframe src="https://chatgpt.com/" width="100%" height="100%" frameborder="0"></iframe>
-			</body>
-			</html>
-	`;
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>ChatGPT</title>
+      </head>
+      <body>
+          <iframe src="https://ritiksharma.me/" width="100%" height="100%" frameborder="0"></iframe>
+      </body>
+      </html>
+  `;
 }
 
 // This method is called when your extension is deactivated
